@@ -20,9 +20,49 @@
 
 ### Installation
 
+You need [Docker](https://docs.docker.com/get-docker/) with the Compose plugin.
+```
+git clone https://github.com/shitisaid-com/shitisaid.com.git
+cd shitisaid.com
+cp .env.example .env
+```
+
 ### Configuration
 
-### Execution:
+All settings live in `.env`, you'll need to set these before you can run anything:
+
+| Variable            | Purpose                                |
+| ------------------- | -------------------------------------- |
+| `POSTGRES_USER`     | Database user created on first start   |
+| `POSTGRES_PASSWORD` | Password for that user                 |
+| `POSTGRES_DB`       | Name of the database created on first start |
+
+These values are only used when the database is created for the first time.
+
+**Version:** PostgreSQL 18 (`postgres:18`), pinned to the major version. Don't change it to `latest`: a new major version can't read existing data without a manual upgrade.
+
+**Ports:** the database is published on `localhost:5432` which is the default port. Other containers reach it at `db:5432`, not `localhost`.
+
+**Schema:** Create a 'db_init' folder and put the `.sql` files inside, then uncomment the `db_init` line in `compose.yaml`. This will create the databases from the schema on the first run.
+
+### Basic Commands:
+
+```
+docker compose up -d          # start in the background
+docker compose ps             # check status
+docker compose logs -f db     # follow database logs
+docker compose down           # stop (data is kept)
+```
+
+Connect to the database:
+
+```
+docker compose exec db psql -U <POSTGRES_USER> <POSTGRES_DB>
+```
+
+Data is stored in the `pgdata` Docker volume, so it survives restarts and `docker compose down`.
+
+To **wipe the database** and start fresh run `docker compose down -v`. This will wipe all data in the database.
 
 ----
 
