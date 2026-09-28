@@ -30,7 +30,7 @@
 
 ### How to contribute?
 
-1. Assign yourself a ticket on our [kanban]([Sign in — Kommit](https://kommit.mccrimmon.me/projects/stuffisaid/board)). Make sure it's assigned to you before you begin working on it!
+1. Assign yourself a ticket on our [kanban](https://kommit.mccrimmon.me/projects/stuffisaid/board). Make sure it's assigned to you before you begin working on it!
 2. Navigate to the directory with your cloned repository
 3. checkout to main and run `git pull` to make sure your main branch is up to date (**very important**)
 4. Take the number seen on the ticket and precede it with `T-` to (in this case) get `T-100` . Then create a new branch with this name using `git branch T-100`.
