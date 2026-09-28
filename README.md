@@ -39,7 +39,7 @@
    
    
 5. You can now checkout to your newly created branch with `git checkout T-100`, and begin work on the ticket!
-6. Once requirements have been met, you can submit the ticket for a [pull request](https://docs.github.com/en/pull-requests/reference/pull-requests) on our [github page]([Pull requests · shitisaid-com/shitisaid.com · GitHub](https://github.com/shitisaid-com/shitisaid.com/pulls)). Simply click "New pull request" and follow the wizard.
+6. Once requirements have been met, you can submit the ticket for a [pull request](https://docs.github.com/en/pull-requests/reference/pull-requests) on our [github page](https://github.com/shitisaid-com/shitisaid.com/pulls). Simply click "New pull request" and follow the wizard.
    
    <img title="" src="assets/2.png" alt="2.png" width="218">
    
