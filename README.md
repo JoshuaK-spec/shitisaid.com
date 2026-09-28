@@ -11,16 +11,12 @@
 ##### This application runs 3 parallel docker containers. Frontend, Backend, and Database.
 ##### They communicate via pre-established exposed ports. Separation improves control, scaling, and performance.
 
-### How to Run
 
-#### Before running!
-open and edit config.txt. Make sure the ports aren't blocked.
-
-```bash
-sudo chmod +x install.sh
-./install.sh
-```
-* Running this will install all three docker containers.
+### Installation
 
 
-#### To reconfigure after building, edit `config.txt` and run `install.sh` again. This will reinstall all three containers.
+### Configuration
+
+
+### Execution:
+

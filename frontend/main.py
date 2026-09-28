@@ -16,7 +16,6 @@ from pathlib import Path
 
 
 ### ==== DEFINITION ====
-
 class GlobalConfig():
     def __init__(self):
         self.MEDIA_FOLDER = Path(os.getcwd(), "media")
