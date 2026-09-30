@@ -66,6 +66,76 @@
                 width: 100%;
                 justify-content: center;
             }
+            /* ===== Logo animation ===== */
+                #LOGO svg {
+                    max-width: 100%;
+                    height: auto;
+                }
+
+                    #LOGO #Group1 > * {
+                        transform-origin: center;
+                        animation: logoWave 10s ease-in-out infinite;
+                        animation-delay: calc(var(--i) * 0.06s);                      
+                    }
+
+                    #LOGO #Group1 > *:nth-child(1) {
+                        --i: 0;
+                    }
+                    #LOGO #Group1 > *:nth-child(2) {
+                        --i: 1;
+                    }
+                    #LOGO #Group1 > *:nth-child(3) {
+                        --i: 2;
+                    }
+                    #LOGO #Group1 > *:nth-child(4) {
+                        --i: 3;
+                    }
+                    #LOGO #Group1 > *:nth-child(5) {
+                        --i: 4;
+                    }
+                    #LOGO #Group1 > *:nth-child(6) {
+                        --i: 5;
+                    }
+                    #LOGO #Group1 > *:nth-child(7) {
+                        --i: 6;
+                    }
+                    #LOGO #Group1 > *:nth-child(8) {
+                        --i: 7;
+                    }
+                    #LOGO #Group1 > *:nth-child(9) {
+                        --i: 8;
+                    }
+                    #LOGO #Group1 > *:nth-child(10) {
+                        --i: 9;
+                    }
+                    #LOGO #Group1 > *:nth-child(11) {
+                        --i: 10;
+                    }
+                    #LOGO #Group1 > *:nth-child(12) {
+                        --i: 11;
+                    }
+                    #LOGO #Group1 > *:nth-child(13) {
+                        --i: 12;
+                    }
+                    #LOGO #Group1 > *:nth-child(14) {
+                        --i: 13;
+                    }
+
+                    /* ===== keyframes ===== */
+                    @keyframes logoWave {
+                        0% { 
+                            transform: translateY(0); 
+                        }
+                        25% {
+                            transform: translateY(-10px);
+                        }
+                        50% { 
+                            transform: translateY(5px); 
+                        }
+                        75%, 100% { 
+                            transform: translateY(0); 
+                        }
+                    }
 
             #SEARCHBAR {
                 display: flex;
