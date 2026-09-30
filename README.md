@@ -20,9 +20,59 @@
 
 ### Installation
 
+You need [Docker](https://docs.docker.com/get-docker/) with the Compose plugin.
+```
+git clone https://github.com/shitisaid-com/shitisaid.com.git
+cd shitisaid.com
+cp .env.example .env
+```
+
 ### Configuration
 
-### Execution:
+All settings live in `.env`, you'll need to set these before you can run anything:
+
+| Variable            | Purpose                                     |
+| ------------------- | ------------------------------------------- |
+| `POSTGRES_USER`     | Database user created on first start        |
+| `POSTGRES_PASSWORD` | Password for that user                      |
+| `POSTGRES_DB`       | Name of the database created on first start |
+| `POSTGRES_PORT`     | Port the database runs at (default `5432`)  |
+
+**Version:** PostgreSQL 18 (`postgres:18`), pinned to the major version. Don't change it to `latest`: a new major version can't read existing data without a manual upgrade.
+
+**Ports:** the database is published on `localhost:<POSTGRES_PORT>`. Set this in `.env` if `5432` is already in use. Containers will always reach it at `db:5432`.
+
+**Schema:** Create a 'db_init' folder and put the `.sql` files inside, then uncomment the `db_init` line in `compose.yaml`. This will create the databases from the schema on the first run.
+
+### Backend
+
+The backend is a Flask API served by gunicorn (`python:3.14-slim`), currently published on `localhost:8000`. It connects to the database and doesnt do much else yet.
+
+You can prove it is running using the basic health check endpoint:
+```bash
+curl -i localhost:8000/health
+```
+
+### Basic Commands:
+
+```bash
+docker compose up -d --build       # build and start in the background
+docker compose ps                  # check status
+docker compose logs -f db          # follow database logs
+docker compose logs -f backend     # follow backend logs
+docker compose down                # stop (data is kept)
+docker compose down -v             # stop (data is destroyed)
+```
+
+Connect to the database:
+
+```
+docker compose exec db psql -U <POSTGRES_USER> <POSTGRES_DB>
+```
+
+Data is stored in the `pgdata` Docker volume, so it survives restarts and `docker compose down`.
+
+To **wipe the database** and start fresh run `docker compose down -v`. This will wipe all data in the database.
 
 ----
 
